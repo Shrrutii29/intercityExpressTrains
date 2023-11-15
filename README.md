@@ -3,7 +3,7 @@
 
 In this assignment we are supposed to design database for InterCity Express Trains (IET) to support there day to day operations by storing information about schedule of coaches 
 
-## Part 1 : Group Work
+# Part 1 : Group Work
 
 ##  Group Members
 - Shruti Sunil Navale (Roll no. 22)
@@ -39,7 +39,8 @@ Station_Schedule: Links stations to schedules, indicating which schedules stop a
 
 Ticket: Stores details about tickets, including ticket ID, booking ID, passenger ID, seat number, prices, and discounts.
 
-
+# Part 2 : Individual Work
+-Shruti Sunil Navale
 ## Set B
 
 #### 1.Show schedule of all trips including main driver information for 10th October this year.

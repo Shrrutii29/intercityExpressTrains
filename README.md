@@ -6,7 +6,7 @@ In this assignment we are supposed to design database for InterCity Express Trai
 # Part 1 : Group Work
 
 ##  Group Members
-- Shruti Sunil Navale (Roll no. 22)
+- Shruti Sunil Navale (Roll no. 23112022)
 - Aumkar Ashok Chitrasagar
 
 ## Identification of Entities
@@ -15,36 +15,42 @@ In this assignment we are supposed to design database for InterCity Express Trai
 
 + Booking: Stores details of bookings, such as booking ID, schedule ID, booking date, passenger ID, agent ID, seater ID, booking status, etc.
 
-+ Coach: Contains information about train coaches, including coach number, mileage, and maintenance schedule.
++ Coach: Contains information about coaches, including coach number, mileage, and maintenance schedule.
 
-Driver: Stores details about train drivers, including driver ID, name, contact number, city of residence, and roster information.
++ Driver: Stores details about drivers, including driver ID, name, contact number, city of residence, and roster information.
 
-Maintenance: Keeps track of routine maintenance schedules for coaches based on mileage and time intervals.
++ Maintenance: Keeps track of routine maintenance schedules for coaches based on mileage and time intervals.
 
-Passenger: Holds information about passengers, including passenger ID, name, age, contact number, and address.
++ Passenger: Holds information about passengers, including passenger ID, name, age, contact number, and address.
 
-Roster: Contains the roster details of drivers, including staff ID, driver name, contact number, city of residence, and schedule information.
++ Roster: Contains details of drivers and routes and time at which drivers are suppose to address routes, including staff ID, driver name, contact number, city of residence, and schedule information.
 
-Route: Stores information about train routes, including route ID, source, destination, distance, duration, and operating days.
++ Route: Stores information about routes, including route ID, source, destination, distance, duration, and operating days.
 
-Schedule: Contains details of train schedules, including schedule ID, coach ID, route ID, departure, and arrival timings.
++ Schedule: Contains details of coach schedules, including schedule ID, coach ID, route ID, departure, and arrival timings.
 
-ScheduleTracking: Keeps track of intermediate stations and timings for each train schedule.
++ ScheduleTracking: Keeps track of schedule by giving actual timings for departure and arrival of coaches.
 
-StandbyCoach: Stores information about standby coaches that are activated if a coach arrives late at the destination.
++ StandbyCoach: Stores information about standby coaches that are activated if a coach arrives late .
 
-Station: Contains information about train stations, including station ID and name.
++ IntermediateStation: Contains information about intermediatestations, including station ID and name.
 
-Station_Schedule: Links stations to schedules, indicating which schedules stop at which stations.
++ Intermediatestation_Schedule: Links stations to routes, indicating order of stops of coaches in routes at intermediatestations and its departure and arrival time at intermediatestations.
 
-Ticket: Stores details about tickets, including ticket ID, booking ID, passenger ID, seat number, prices, and discounts.
++ Ticket: Stores details about tickets, including ticket ID, booking ID, passenger ID, seat number, prices, and discounts.
 
 ## ER Diagram
 ![image](https://github.com/Shrrutii29/intercityExpressTrains/assets/121250741/5657949f-444f-4333-ac2e-8d2e65443784)
 
+## Creation of database-Intercityy
+SQL queries to perform following steps to create database for IntercityExpressTrains I have mentioned in textfile named intercity.txt 
+
+- Create database
+- Create tables 
+- Insert sample data in table
 
 # Part 2 : Individual Work
--Shruti Sunil Navale
+doneby -Shruti Sunil Navale
 ## Set B
 
 #### 1.Show schedule of all trips including main driver information for 10th October this year.

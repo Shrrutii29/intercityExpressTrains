@@ -9,6 +9,22 @@ In this assignment we are supposed to design database for InterCity Express Trai
 - Shruti Sunil Navale (Roll no. 23112022)
 - Aumkar Ashok Chitrasagar
 
+## Contribution
+- ER Diagram : Shruti Navale & Aumkar Chitrasagar
+- Schema : Shruti Navale
+- Sample data : Shruti Navale
+- Readme File : Shruti Navale
+
+## Assumption
+- we have considered coach is train
+- there are always some coaches which are idle so that we can use them as standbycoach
+- sample data is not large considered only different situations where part 2 queries can run
+- data entries for september,october,november,december is shown
+- route between A to B and B to A is considered different but intermediate stations are considered same for both by changing stop_order only
+- passenger can do many bookings but every booking for a schedule is related to a passenger
+- seats numbering system is same in every coach
+- ticket is per seat
+ 
 ## Identification of Entities
 
 + Agent: Contains information about travel agents, including their ID, name, contact details, and commission rates.
@@ -50,30 +66,12 @@ SQL queries to perform following steps to create database for IntercityExpressTr
 - Insert sample data in table
 
 # Part 2 : Individual Work
-doneby -Shruti Sunil Navale
-## Set B
+## Set B : doneby - Shruti Navale (23112022) 
 
 #### 1.Show schedule of all trips including main driver information for 10th October this year.
 
     SQL Query : 
-
-     mysql> SELECT DISTINCT
-    ->     s.sid,
-    ->     s.cid,
-    ->     s.rid,
-    ->     s.departure,
-    ->     s.arrival,
-    ->     d.did AS driver_id,
-    ->     d.name AS driver_name,
-    ->     d.contactno AS driver_contact
-    -> FROM
-    ->     schedule s
-    -> JOIN
-    ->     roster r ON s.rid = r.rid
-    -> JOIN
-    ->     driver d ON r.did = d.did
-    -> WHERE
-    ->     r.remark = 'Main Driver' AND DATE(s.departure) = '2023-10-10';
+    select distinct s.sid, s.cid,s.rid,s.departure,s.arrival,d.did as Maindriver_id,d.name as Maindriver_name,d.contactno AS Maindriver_contact from schedule s join roster r on s.rid = r.rid join driver d on r.did = d.did where r.remark = 'Main Driver' AND DATE(s.departure) = '2023-10-10';
 
 
     Output :
@@ -91,27 +89,7 @@ doneby -Shruti Sunil Navale
 #### 2.List all coaches with mileage between 4000 and 4999 km covered for September this year; include information on the coach, its last service date and total number of scheduled trips.
 
     SQL Query :
-
-    mysql> SELECT
-
-    ->     c.cid,
-    ->     c.cname,
-    ->     c.capacity,
-    ->     c.mileage,
-    ->     c.facilities,
-    ->     MAX(m.lastmaintenance) AS last_service_date,
-    ->     COUNT(s.sid) AS total_trips
-    -> FROM
-    ->     coach c
-    -> JOIN
-    ->     maintenance m ON c.cid = m.cid
-    -> JOIN
-    ->     schedule s ON c.cid = s.cid
-    -> WHERE
-    ->     c.mileage BETWEEN 4000 AND 4999
-    ->     AND MONTH(s.departure) = 9
-    -> GROUP BY
-    ->     c.cid, c.cname, c.capacity, c.mileage,c.facilities;
+    select c.cid, c.cname, c.capacity, c.mileage, c.facilities, max(m.lastmaintenance) as last_service_date, count(s.sid) as total_trips from coach c join maintenance m on c.cid = m.cid join schedule s on c.cid = s.cid where c.mileage between 4000 and 4999 and month(s.departure) = 9 group by c.cid, c.cname, c.capacity, c.mileage, c.facilities;
 
      Output : 
     +------+------------------+----------+---------+-----------------------------------------------------------+-------------------+-------------+
@@ -126,34 +104,8 @@ doneby -Shruti Sunil Navale
 #### 3.List all agents, in descending order of percentage of confirmed booking each trip in the month of October this year. Include agent and route information in your result.
 
     SQL Query : 
-    mysql> SELECT
+    select a.aid as agent_id, a.aname as agent_name, r.rid as route_id, r.source as source, r.dest as destination, s.sid as schedule_id, count(*) as total_bookings, sum(b.bstatus = 'Confirmed') as confirmed_bookings, (sum(b.bstatus = 'Confirmed') / count(*)) * 100 as percentage_confirmed from agent a join booking b on a.aid = b.aid join schedule s on b.sid = s.sid join route r on s.rid = r.rid where month(s.departure) = 10 and year(s.departure) = year(curdate()) group by agent_id, agent_name, route_id, source, destination, schedule_id order by percentage_confirmed desc;
 
-    ->     a.aid AS agent_id,
-    ->     a.aname AS agent_name,
-    ->     r.rid AS route_id,
-    ->     r.source AS source,
-    ->     r.dest AS destination,
-    ->     s.sid AS schedule_id,
-    ->     COUNT(*) AS total_bookings,
-    ->     SUM(CASE WHEN b.bstatus = 'Confirmed' THEN 1 ELSE 0 END) AS confirmed_bookings,
-    ->     (SUM(CASE WHEN b.bstatus = 'Confirmed' THEN 1 ELSE 0 END) / COUNT(*)) * 100 AS percentage_confirmed
-    -> FROM
-    ->     agent a
-    -> JOIN
-    ->     booking b ON a.aid = b.aid
-    -> JOIN
-    ->     schedule s ON b.sid = s.sid
-    -> JOIN
-    ->     route r ON s.rid = r.rid
-    -> WHERE
-    ->     MONTH(s.departure) = 10
-    ->     AND YEAR(s.departure) = YEAR(CURDATE())
-    -> GROUP BY
-    ->     agent_id, agent_name, route_id, source, destination, schedule_id
-    -> ORDER BY
-    ->     percentage_confirmed DESC;
-
-    
     Output : 
     
     +----------+------------------+----------+-------------+----------------+-------------+----------------+--------------------+----------------------+
@@ -181,24 +133,7 @@ doneby -Shruti Sunil Navale
 #### 4.Display the details of the routes where majority of bookings are not made by agents.
 
     SQL Query :
-    mysql> SELECT
-    ->     r.rid AS route_id,
-    ->     r.source,
-    ->     r.dest,
-    ->     COUNT(*) AS total_bookings,
-    ->     SUM(CASE WHEN b.aid IS NULL THEN 1 ELSE 0 END) AS bookings_by_passengers,
-    ->     SUM(CASE WHEN b.aid IS NOT NULL THEN 1 ELSE 0 END) AS bookings_by_agents
-    -> FROM
-    ->     route r
-    -> LEFT JOIN
-    ->     schedule s ON r.rid = s.rid
-    -> LEFT JOIN
-    ->     booking b ON s.sid = b.sid
-    -> GROUP BY
-    ->     route_id, r.source, r.dest
-    -> HAVING
-    ->     bookings_by_passengers > bookings_by_agents OR bookings_by_agents IS NULL;
-
+    select r.rid as route_id, r.source, r.dest, count(*) as total_bookings, sum(b.aid is null) as bookings_by_passengers, sum(b.aid is not null) as bookings_by_agents from route r left join schedule s on r.rid = s.rid left join booking b on s.sid = b.sid group by route_id, r.source, r.dest having bookings_by_passengers > bookings_by_agents or bookings_by_agents is null;
 
     Output :
     +----------+-----------------+---------------+----------------+------------------------+--------------------+
@@ -224,24 +159,7 @@ doneby -Shruti Sunil Navale
 #### 5.Display the details of the agents who have made maximum commission in the Month of September.
 
     SQL Query
-    mysql> SELECT
-    ->     a.aid AS agent_id,
-    ->     a.aname AS agent_name,
-    ->     SUM(IF(b.bstatus = 'Confirmed', t.total_price * a.commission, 0)) AS total_commission
-    -> FROM
-    ->     booking b
-    -> JOIN
-    ->     agent a ON b.aid = a.aid
-    -> JOIN
-    ->     ticket t ON b.bid = t.bid
-    -> WHERE
-    ->     MONTH(b.bdate) = 9
-    -> GROUP BY
-    ->     agent_id, agent_name
-    -> ORDER BY
-    ->     total_commission DESC
-    -> LIMIT 1;
-    
+    select a.aid as agent_id, a.aname as agent_name, sum(case when b.bstatus = 'Confirmed' then t.total_price * a.commission else 0 end) as total_commission from booking b join agent a on b.aid = a.aid join ticket t on b.bid = t.bid where month(b.bdate) = 9 group by agent_id, agent_name order by total_commission desc limit 1;
 
     output : 
     +----------+---------------+--------------------+

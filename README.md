@@ -39,6 +39,10 @@ Station_Schedule: Links stations to schedules, indicating which schedules stop a
 
 Ticket: Stores details about tickets, including ticket ID, booking ID, passenger ID, seat number, prices, and discounts.
 
+## ER Diagram
+![image](https://github.com/Shrrutii29/intercityExpressTrains/assets/121250741/5657949f-444f-4333-ac2e-8d2e65443784)
+
+
 # Part 2 : Individual Work
 -Shruti Sunil Navale
 ## Set B

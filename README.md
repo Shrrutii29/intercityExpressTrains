@@ -66,7 +66,7 @@ SQL queries to perform following steps to create database for IntercityExpressTr
 - Insert sample data in table
 
 # Part 2 : Individual Work
-## Set B : doneby - Shruti Navale (23112022) 
+## Set B : done by - Shruti Navale (23112022) 
 
 #### 1.Show schedule of all trips including main driver information for 10th October this year.
 

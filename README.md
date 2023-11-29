@@ -67,7 +67,6 @@ SQL queries to perform following steps to create database for IntercityExpressTr
 
 # Part 2 : Individual Work
 ## Set B : done by - Shruti Navale (23112022)
-## Set C : done by - Aumkar Chitragar (23112006)
 
 #### 1.Show schedule of all trips including main driver information for 10th October this year.
 
@@ -168,8 +167,8 @@ SQL queries to perform following steps to create database for IntercityExpressTr
     +----------+---------------+--------------------+
     | A001     |  Arjun Sharma | 28.750000428408384 |
     +----------+---------------+--------------------+
-
-
+## Set C : done by - Aumkar Chitragar (23112006)
+    I I have submitted desired queries in text file named Aumkar Part 2 Assignment.txt 
 
 
 

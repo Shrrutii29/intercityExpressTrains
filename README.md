@@ -56,7 +56,7 @@ In this assignment we are supposed to design database for InterCity Express Trai
 + Ticket: Stores details about tickets, including ticket ID, booking ID, passenger ID, seat number, prices, and discounts.
 
 ## ER Diagram
-![image](https://github.com/Shrrutii29/intercityExpressTrains/assets/121250741/5657949f-444f-4333-ac2e-8d2e65443784)
+![6f557a41-24ab-4842-bb06-0a7c665ef252](https://github.com/Shrrutii29/intercityExpressTrains/assets/121250741/a953fd98-4db7-454f-86f2-c70435c883cf)
 
 ## Creation of database-Intercityy
 SQL queries to perform following steps to create database for IntercityExpressTrains I have mentioned in textfile named intercity.txt 

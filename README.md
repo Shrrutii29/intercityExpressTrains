@@ -7,12 +7,12 @@ In this assignment we are supposed to design database for InterCity Express Trai
 
 ##  Group Members
 - Shruti Sunil Navale (Roll no. 23112022)
-- Aumkar Ashok Chitrasagar
+- Aumkar Ashok Chitragar (Roll np. 23112006)
 
 ## Contribution
-- ER Diagram : Shruti Navale & Aumkar Chitrasagar
+- ER Diagram : Shruti Navale & Aumkar Chitragar
 - Schema : Shruti Navale
-- Sample data : Shruti Navale
+- Sample data : Shruti Navale & Aumkar Chitragar
 - Readme File : Shruti Navale
 
 ## Assumption
@@ -66,7 +66,8 @@ SQL queries to perform following steps to create database for IntercityExpressTr
 - Insert sample data in table
 
 # Part 2 : Individual Work
-## Set B : done by - Shruti Navale (23112022) 
+## Set B : done by - Shruti Navale (23112022)
+## Set C : done by - Aumkar Chitragar (23112006)
 
 #### 1.Show schedule of all trips including main driver information for 10th October this year.
 

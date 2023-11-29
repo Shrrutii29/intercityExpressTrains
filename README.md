@@ -86,7 +86,7 @@ SQL queries performed in order to create database for IntercityExpressTrains are
 #### 2.List all coaches with mileage between 4000 and 4999 km covered for September this year; include information on the coach, its last service date and total number of scheduled trips.
 
     SQL Query :
-    select c.cid, c.cname, c.capacity, c.mileage, c.facilities, max(m.lastmaintenance) as last_service_date, count( distinct s.sid) as total_trips from coach c join maintenance m on c.cid = m.cid join schedule s on c.cid = s.cid where c.mileage between 4000 and 4999 and month(s.departure) = 9 group by c.cid, c.cname, c.capacity, c.mileage, c.facilities;
+    select c.cid, c.cname, c.capacity, c.mileage, c.facilities, max(m.lastmaintenance) as last_service_date, count( distinct s.sid) as total_trips from coach c,maintenance m,schedule s where c.cid = m.cid and c.cid = s.cid and c.mileage between 4000 and 4999 and month(s.departure) = 9 group by c.cid, c.cname, c.capacity, c.mileage, c.facilities;
 
      Output : 
     +------+------------------+----------+---------+-----------------------------------------------------------+-------------------+-------------+

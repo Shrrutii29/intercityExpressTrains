@@ -7,7 +7,7 @@ In this assignment we are supposed to design database for InterCity Express Trai
 
 ##  Group Members
 - Shruti Sunil Navale (Roll no. 23112022)
-- Aumkar Ashok Chitragar (Roll np. 23112006)
+- Aumkar Ashok Chitragar (Roll no. 23112006)
 
 ## Contribution
 - ER Diagram : Shruti Navale & Aumkar Chitragar

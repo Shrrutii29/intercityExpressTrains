@@ -18,10 +18,10 @@ In this assignment we are supposed to design database for InterCity Express Trai
 ## Assumption
 - we have considered coach is train
 - there are always some coaches which are idle so that we can use them as standbycoach
-- sample data is not large considered only different situations where part 2 queries can run
-- data entries for september,october,november,december is shown
-- route between A to B and B to A is considered different but intermediate stations are considered same for both by changing stop_order only
-- passenger can do many bookings but every booking for a schedule is related to a passenger
+- sample data is not large and appropriate considered only some different situations where part 2 queries can run
+- data entries only for september,october,november,december months is done
+- route of A to B and B to A is considered different but intermediate stations are considered same for both just intermediate station stop order is reversed
+- a passenger can do many bookings but every booking for a schedule is related to a passenger i.e a seat can be only referred to a passenger
 - seats numbering system is same in every coach
 - ticket is per seat
  
@@ -29,7 +29,7 @@ In this assignment we are supposed to design database for InterCity Express Trai
 
 + Agent: Contains information about travel agents, including their ID, name, contact details, and commission rates.
 
-+ Booking: Stores details of bookings, such as booking ID, schedule ID, booking date, passenger ID, agent ID, seater ID, booking status, etc.
++ Booking: Stores details of bookings, such as booking ID, schedule ID, booking date, booker ID, agent ID, seater ID, booking status, etc.
 
 + Coach: Contains information about coaches, including coach number, mileage, and maintenance schedule.
 
@@ -39,7 +39,7 @@ In this assignment we are supposed to design database for InterCity Express Trai
 
 + Passenger: Holds information about passengers, including passenger ID, name, age, contact number, and address.
 
-+ Roster: Contains details of drivers and routes and time at which drivers are suppose to address routes, including staff ID, driver name, contact number, city of residence, and schedule information.
++ Roster: Contains details of drivers and routes and time at which drivers are suppose to address routes.
 
 + Route: Stores information about routes, including route ID, source, destination, distance, duration, and operating days.
 
@@ -51,7 +51,7 @@ In this assignment we are supposed to design database for InterCity Express Trai
 
 + IntermediateStation: Contains information about intermediatestations, including station ID and name.
 
-+ Intermediatestation_Schedule: Links stations to routes, indicating order of stops of coaches in routes at intermediatestations and its departure and arrival time at intermediatestations.
++ Intermediatestation_Schedule: Links intermediatestations to routes, indicating order of stops of coaches in routes at intermediatestations and its departure and arrival time at intermediatestations.
 
 + Ticket: Stores details about tickets, including ticket ID, booking ID, passenger ID, seat number, prices, and discounts.
 
@@ -59,11 +59,11 @@ In this assignment we are supposed to design database for InterCity Express Trai
 ![6f557a41-24ab-4842-bb06-0a7c665ef252](https://github.com/Shrrutii29/intercityExpressTrains/assets/121250741/a953fd98-4db7-454f-86f2-c70435c883cf)
 
 ## Creation of database-Intercityy
-SQL queries to perform following steps to create database for IntercityExpressTrains I have mentioned in textfile named intercity.txt 
-
+SQL queries performed in order to create database for IntercityExpressTrains are mentioned in textfile named intercity.txt 
+### Steps :
 - Create database
-- Create tables 
-- Insert sample data in table
+- Create tables
+- Insert sample data in tables
 
 # Part 2 : Individual Work
 ## Set B : done by - Shruti Navale (23112022)
@@ -155,7 +155,7 @@ SQL queries to perform following steps to create database for IntercityExpressTr
     +----------+---------------+--------------------+
     
 ## Set C : done by - Aumkar Chitragar (23112006)
-    I I have submitted desired queries in text file named Aumkar Part 2 Assignment.txt 
+    Desired queries are submitted in text file named Aumkar Part 2 Assignment.txt 
 
 
 

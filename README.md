@@ -71,7 +71,7 @@ SQL queries performed in order to create database for IntercityExpressTrains are
 #### 1.Show schedule of all trips including main driver information for 10th October this year.
 
     SQL Query : 
-    select distinct s.sid, s.cid,s.rid,s.departure,s.arrival,d.did as Maindriver_id,d.name as Maindriver_name,d.contactno AS Maindriver_contact from schedule s,driver d,roster r where s.rid = r.rid and r.did = d.did and r.remark = 'Main Driver' AND DATE(s.departure) = '2023-10-10';
+    select distinct s.sid, s.cid,s.rid,s.departure,s.arrival,d.did as Maindriver_id,d.name as Maindriver_name,d.contactno as Maindriver_contact from schedule s,driver d,roster r where s.rid = r.rid and r.did = d.did and r.remark = 'Main Driver' AND DATE(s.departure) = '2023-10-10';
 
     Output :
     +-------+------+-------+---------------------+---------------------+---------------+-----------------+--------------------+
@@ -144,7 +144,7 @@ SQL queries performed in order to create database for IntercityExpressTrains are
 
 #### 5.Display the details of the agents who have made maximum commission in the Month of September.
 
-    SQL Query
+    SQL Query :
      select a.aid as agent_id, a.aname as agent_name, max(t.total_price * a.commission) as total_commission from booking b,agent a,ticket t where b.aid = a.aid and b.bid = t.bid and month(b.bdate) = 9 and b.bstatus="Confirmed" group by agent_id, agent_name order by total_commission desc limit 1;
      
     output : 

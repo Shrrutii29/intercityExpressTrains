@@ -65,7 +65,7 @@ alter table ticket add constraint fk_bid foreign key (bid) references booking (b
 alter table schedule add constraint fk_pid3 foreign key (pid) references passenger (pid);
 
 -- roster
-create table roster (did varchar(20), date date, time time, rid varchar(20), remark varchar(20), primary key (did, date, time, rid), constraint fk_rid foreign key (rid) references route (rid));
+create table roster (did varchar(20), date date, time time, rid varchar(20), remark varchar(20), primary key (did, date, time, rid));
 alter table roster add constraint fk_did foreign key (did) references driver (did);
 alter table roster add constraint fk_rid2 foreign key (rid) references route (rid);
 
